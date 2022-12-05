@@ -43,18 +43,6 @@
           ".cpp"
         ]
       }
-    ],
-    "configuration":[
-      {
-        "title": "Run CPP Code",
-        "type" : "object",
-        "properties": {
-          "cmdExecution" : {
-            "type":"object",
-            "default": "gcc ${fileBasename} -o ${fileBasenameNoExtension}"
-          }
-        }
-      }
     ]
   },
   "scripts": {
