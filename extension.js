@@ -34,7 +34,13 @@ function activate(context) {
 		var file = vscode.window.activeTextEditor.document.fileName;
 		var fileName = file.match(/[^\/]+$/)
 		var fileNoExt = file.match(/[^\/|\\]*(?=\.)/)
-		var cmd = "gcc " + fileName + " -o " + fileNoExt + "; ./" + fileNoExt;
+		var ext = file.match(/\.([^.]*?)(?=\?|#|$)/);
+		if (ext[0] == '.cpp'){
+			var cmd = "g++ " + fileName + " -o " + fileNoExt + "; ./" + fileNoExt;
+		}
+		else {
+			var cmd = "gcc " + fileName + " -o " + fileNoExt + "; ./" + fileNoExt;
+		}
 		
 		terminal.sendText(cmd);
 		
